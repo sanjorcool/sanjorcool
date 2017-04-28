@@ -1,0 +1,19 @@
+/* CREATE BY SANJORCOOL ON 20170325 */
+
+*{margin:0; padding:0; text-decoration: none; list-style: none; font-family: "微软雅黑";}
+
+.clear{clear:both;}
+.f_l{float:left;}
+.r_r{float:right;}
+.displaynone{display:none;}
+
+.red_text {color:red;}
+.green_text {color:green;}
+
+/*html{height:100%;min-height:680px; }*/
+body{ position:relative; width:100%; height:100%; overflow-y:auto;overflow-x:hidden;}
+
+.badge {margin-left:10px;}
+
+
+

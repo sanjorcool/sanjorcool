@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<title>SANJORCOOL</title>
+	<meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="/public/images/favicon.ico" />
+	<link rel="stylesheet" type="text/css" href="/public/css/main.css">
+	<link rel="stylesheet" type="text/css" href="/public/css/bootstrap.min.css">
+</head>
+<body>
+	<div class="content_box">
+		<div class="article_prev">
+			<div class="banner"><img src="/public/images/img.png"></div>
+			<div class="logo"><img src="/public/images/logo.png"></div>
+			<div class="login_box">
+				<p class="welcome">欢迎光临</p>
+				<ul class="car_code" id="user_code">
+					<li class="name_kind" name="000">临</li>
+					<li class="name_fircode"></li>
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+				<div class="goin">
+					<div class="goin_btn" id="login"><img src="/public/images/ico_goto.png"></div>
+					<ul class="border_line">
+						<li class="line_a"><img src="/public/images/border_line1.png" id="changea"></li>
+						<li class="line_b"><img src="/public/images/border_line2.png"></li>
+						<li class="line_c"><img src="/public/images/border_line3.png"></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="article_next">
+
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-xs-12  n_content_box">
+						<iframe class="iframe" src="" frameborder="0" height="100%" width="100%"></iframe>
+						<div class="defaulte_bg"><img src="/public/images/img_null.png"></div>	
+					</div>
+
+					<!-- 当页面小于768px时显示 -->
+					<div class="visible-xs-block nav_xs">
+						<div class="nav_xs_top" id="function_nav_ico" onclick="navfunclick(this)">
+							<img src="/public/images/img_logo.png">
+						</div>
+						<ul class="function_nav row">
+							<a href="#"><li><i>文章／Article</i></li></a>
+							<a href="#"><li><i>关于／About</i></li></a>
+							<a href="#"><li><i>{{ testword }}</i></li></a>
+							<a href="#"><li><i>评论一下！</i></li></a>
+							<a href="#" class="logout"><li><i>退出登陆！</i></li></a>
+							<p class="user_info"><span>临</span><i>·</i><b></b></p>
+						</ul>
+					</div>
+
+					<!-- 默认显示 -->
+					<div class="hidden-xs  nav">
+						<div class="nav_logo">
+							<div class="nav_logo_bg"><img src="/public/images/img_logo.png"></div>
+							<div class="btm_triangle"></div>
+						</div>
+						<ul class="nav_main nav_top">
+							<li class="active">
+								<a href="#article" class="ico_box"><img src="/public/images/ico_nav_article.png"><i class="spot"></i></a>
+								<p class="log_text">文章／Article</p>
+							</li>
+							<li class="acitve">
+								<a href="#about" class="ico_box"><img src="/public/images/ico_nav_about.png"><i class="spot"></i></a>
+								<p class="log_text">关于／About</p>
+							</li>
+						</ul>
+						<ul class="nav_main nav_btm">
+							<li class="active">
+								<a href="#getgoot" class="ico_box"><img src="/public/images/ico_nav_good_normal.png"></a>
+								<p class="log_text">点个赞吧！</p>
+							</li>
+							<li class="acitve">
+								<a href="#comment" class="ico_box"><img src="/public/images/ico_nav_comment_normal.png"></a>
+								<p class="log_text">评论一下！</p>
+							</li>
+							<li>
+								<div class="line"></div>
+								<a href="#" class="ico_box logout"><img src="/public/images/ico_nav_close.png"></a>
+								<p class="log_text" style="line-height: 60px; color: #ff3300;">退出登陆！</p>
+							</li>
+						</ul>
+						<p class="user_info"><span>临</span><i>·</i><b></b></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="bg_mask"></div>
+
+	<script type="text/javascript" src="/public/js/jquery.min.js"></script>
+	<script type="text/javascript" src="/public/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/public/js/index.js"></script>
+
+</body>
+<script type="text/javascript">
+	window.onload = function(){
+
+		var userStyle,
+			userName = "";
+
+		//获取userstyle／username的值
+		function userNameGet(){
+			userStyle = $('#user_code').children('.name_kind').attr('name');
+			$('#user_code').find('li').each(function(){
+				if($(this).index() == 0){
+					return;
+				}else{
+					userName = userName + $(this).html();
+				}
+			});
+		};
+		//
+
+		//拆分用户名显示名称到界面上
+		function userCodeShow(str){
+			var len = str.length;
+			for(var i = 0; i < len; i++){
+				j = i+1;
+				$('#user_code li:eq('+j+')').html(str[i]);
+			}
+		}
+		//
+		
+		//点击按钮登陆，提交登陆信息
+		$('#login').on('click',function(){
+			userNameGet();
+			$.ajax({
+				type:'post',
+				url:'/api/user/login',
+				data:{
+					userstyle: userStyle,
+					username: userName
+				},
+				dataType:'json',
+				success:function(result){
+					loginAuto();
+					console.log(result);
+					$("body").find('.user_info').each(function(){
+						$(this).children('b').html(result.usercode);
+					})
+				}
+			});
+			userName = "";
+		})
+		//
+
+		//页面加载完成之后，通过ajax获取初始车牌号
+		$.ajax({
+			type:'post',
+			url:'/api/user/load',
+			dataType:'json',
+			success: function(result){
+				console.log(result);
+				userCodeShow(result.usercode);
+			}
+		});
+		//
+
+		//点击退出登陆之后，通过ajax生成新的临时车牌
+		$('body').find('.logout').each(function(){
+			$(this).on('click',function(){
+				$.ajax({
+					type:'post',
+					url:'/api/user/logout',
+					success:function(result){
+						logoutAuto();
+						userCodeShow(result.usercode);
+						console.log(result);
+					}
+				})
+			})
+		})
+		//
+	}
+</script>
+</html>

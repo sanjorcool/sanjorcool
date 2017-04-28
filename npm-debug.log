@@ -1,0 +1,113 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/Cellar/node/7.7.4/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'publish' ]
+2 info using npm@4.1.2
+3 info using node@v7.7.4
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec Result {
+7 silly cache add   raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   escapedName: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: '/Users/sanjorcool/Desktop/NODE-demo',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory /Users/sanjorcool/.npm/demo1/1.0.0/package.tgz not in flight; packing
+9 verbose correctMkdir /Users/sanjorcool/.npm correctMkdir not in flight; initializing
+10 info lifecycle demo1@1.0.0~prepublish: demo1@1.0.0
+11 silly lifecycle demo1@1.0.0~prepublish: no script for prepublish, continuing
+12 info lifecycle demo1@1.0.0~prepare: demo1@1.0.0
+13 silly lifecycle demo1@1.0.0~prepare: no script for prepare, continuing
+14 verbose tar pack [ '/Users/sanjorcool/.npm/demo1/1.0.0/package.tgz',
+14 verbose tar pack   '/Users/sanjorcool/Desktop/NODE-demo' ]
+15 verbose tarball /Users/sanjorcool/.npm/demo1/1.0.0/package.tgz
+16 verbose folder /Users/sanjorcool/Desktop/NODE-demo
+17 verbose addLocalTarball adding from inside cache /Users/sanjorcool/.npm/demo1/1.0.0/package.tgz
+18 verbose correctMkdir /Users/sanjorcool/.npm correctMkdir not in flight; initializing
+19 silly cache afterAdd demo1@1.0.0
+20 verbose afterAdd /Users/sanjorcool/.npm/demo1/1.0.0/package/package.json not in flight; writing
+21 verbose correctMkdir /Users/sanjorcool/.npm correctMkdir not in flight; initializing
+22 verbose afterAdd /Users/sanjorcool/.npm/demo1/1.0.0/package/package.json written
+23 silly publish { name: 'demo1',
+23 silly publish   version: '1.0.0',
+23 silly publish   description: '',
+23 silly publish   main: 'index.js',
+23 silly publish   scripts: { test: 'echo "Error: no test specified" && exit 1' },
+23 silly publish   author: { name: 'sanjorcool' },
+23 silly publish   license: 'ISC',
+23 silly publish   dependencies:
+23 silly publish    { 'body-parser': '^1.17.1',
+23 silly publish      cookies: '^0.7.0',
+23 silly publish      express: '^4.15.2',
+23 silly publish      markdown: '^0.5.0',
+23 silly publish      moment: '^2.18.1',
+23 silly publish      mongoose: '^4.9.1',
+23 silly publish      swig: '^1.4.2' },
+23 silly publish   readme: 'ERROR: No README data found!',
+23 silly publish   _id: 'demo1@1.0.0',
+23 silly publish   _shasum: '0b1453c9b540d07f5e1b1a09669be651dfa4830d',
+23 silly publish   _from: '.' }
+24 info lifecycle demo1@1.0.0~prepublishOnly: demo1@1.0.0
+25 silly lifecycle demo1@1.0.0~prepublishOnly: no script for prepublishOnly, continuing
+26 verbose getPublishConfig undefined
+27 silly mapToRegistry name demo1
+28 silly mapToRegistry using default registry
+29 silly mapToRegistry registry https://registry.npmjs.org/
+30 silly mapToRegistry data Result {
+30 silly mapToRegistry   raw: 'demo1',
+30 silly mapToRegistry   scope: null,
+30 silly mapToRegistry   escapedName: 'demo1',
+30 silly mapToRegistry   name: 'demo1',
+30 silly mapToRegistry   rawSpec: '',
+30 silly mapToRegistry   spec: 'latest',
+30 silly mapToRegistry   type: 'tag' }
+31 silly mapToRegistry uri https://registry.npmjs.org/demo1
+32 verbose publish registryBase https://registry.npmjs.org/
+33 silly publish uploading /Users/sanjorcool/.npm/demo1/1.0.0/package.tgz
+34 verbose request uri https://registry.npmjs.org/demo1
+35 verbose request sending authorization for write operation
+36 info attempt registry request try #1 at 下午4:59:49
+37 verbose request using bearer token for auth
+38 verbose request id b28e8b204ca9f6f4
+39 http request PUT https://registry.npmjs.org/demo1
+40 http 403 https://registry.npmjs.org/demo1
+41 verbose headers { 'content-type': 'application/json',
+41 verbose headers   'cache-control': 'max-age=300',
+41 verbose headers   'content-length': '99',
+41 verbose headers   'accept-ranges': 'bytes',
+41 verbose headers   date: 'Wed, 05 Apr 2017 09:00:06 GMT',
+41 verbose headers   via: '1.1 varnish',
+41 verbose headers   connection: 'keep-alive',
+41 verbose headers   'x-served-by': 'cache-nrt6135-NRT',
+41 verbose headers   'x-cache': 'MISS',
+41 verbose headers   'x-cache-hits': '0',
+41 verbose headers   'x-timer': 'S1491382790.179111,VS0,VE16683',
+41 verbose headers   vary: 'Accept-Encoding' }
+42 verbose request invalidating /Users/sanjorcool/.npm/registry.npmjs.org/demo1 on PUT
+43 error publish Failed PUT 403
+44 verbose stack Error: you do not have permission to publish "demo1". Are you logged in as the correct user? : demo1
+44 verbose stack     at makeError (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:304:12)
+44 verbose stack     at CachingRegistryClient.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:292:14)
+44 verbose stack     at Request._callback (/usr/local/lib/node_modules/npm/node_modules/npm-registry-client/lib/request.js:212:14)
+44 verbose stack     at Request.self.callback (/usr/local/lib/node_modules/npm/node_modules/request/request.js:186:22)
+44 verbose stack     at emitTwo (events.js:106:13)
+44 verbose stack     at Request.emit (events.js:194:7)
+44 verbose stack     at Request.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1081:10)
+44 verbose stack     at emitOne (events.js:96:13)
+44 verbose stack     at Request.emit (events.js:191:7)
+44 verbose stack     at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/npm/node_modules/request/request.js:1001:12)
+45 verbose statusCode 403
+46 verbose pkgid demo1
+47 verbose cwd /Users/sanjorcool/Desktop/NODE-demo
+48 error Darwin 16.5.0
+49 error argv "/usr/local/Cellar/node/7.7.4/bin/node" "/usr/local/bin/npm" "publish"
+50 error node v7.7.4
+51 error npm  v4.1.2
+52 error code E403
+53 error you do not have permission to publish "demo1". Are you logged in as the correct user? : demo1
+54 error If you need help, you may report this error at:
+54 error     <https://github.com/npm/npm/issues>
+55 verbose exit [ 1, true ]
