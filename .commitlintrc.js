@@ -4,7 +4,28 @@ module.exports = {
   extends: ["@commitlint/config-conventional"],
   rules: {
     // @see: https://commitlint.js.org/#/reference-rules
+    "body-leading-blank": [2, "always"],
+    "footer-leading-blank": [1, "always"],
     "subject-empty": [2, "never"],
+    "type-empty": [2, "never"],
+    "subject-case": [0, "never"],
+    "type-enum": [
+      2,
+      "always",
+      [
+        "feat",
+        "fix",
+        "docs",
+        "style",
+        "refactor",
+        "perf",
+        "test",
+        "build",
+        "ci",
+        "revert",
+        "chore",
+      ],
+    ],
   },
   prompt: {
     alias: { fd: "docs: fix typos" },
