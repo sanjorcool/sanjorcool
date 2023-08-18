@@ -30,9 +30,12 @@
     "url": "https://github.com/sanjorcool/sanjorcool.git"
   },
   "lint-staged": {
-    "*.{js,md,vue}": [
+    "*.{js}": [
       "prettier --check",
       "eslint"
+    ],
+    "*.md": [
+      "prettier --write"
     ]
   },
   "config": {
