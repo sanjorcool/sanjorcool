@@ -83,7 +83,7 @@ module.exports = {
     useAI: false,
     aiNumber: 1,
     themeColorCode: "",
-    scopes: [],
+    scopes: ["global"],
     allowCustomScopes: true,
     allowEmptyScopes: true,
     customScopesAlign: "bottom",
