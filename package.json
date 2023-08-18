@@ -4,7 +4,7 @@
   "description": "template",
   "main": "./src/index.js",
   "scripts": {
-    "build": "rollup -c",
+    "build": "rollup -c --bundleConfigAsCjs",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepare": "husky install",
     "prettier": "prettier --write ."
@@ -14,6 +14,7 @@
   "devDependencies": {
     "@commitlint/cli": "^17.7.1",
     "@commitlint/config-conventional": "^17.7.0",
+    "@rollup/plugin-terser": "^0.4.3",
     "commitizen": "^4.3.0",
     "cz-git": "^1.7.1",
     "eslint": "^8.47.0",
