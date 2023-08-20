@@ -1,13 +1,17 @@
 {
-  "name": "plugintemplate",
+  "name": "@sanjorcool/cli",
   "version": "1.0.0",
   "description": "template",
-  "main": "./src/index.js",
+  "main": "./dist/@sanjorcool/cli.js",
   "scripts": {
+    "start": "node dist/bundle.js",
     "build": "rollup -c --bundleConfigAsCjs",
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepare": "husky install",
     "prettier": "prettier --write ."
+  },
+  "bin": {
+    "sanjorcool": "./bin/cli.js"
   },
   "author": "sanjorcool",
   "license": "ISC",
@@ -25,7 +29,9 @@
     "husky": "^8.0.3",
     "lint-staged": "^14.0.0",
     "prettier": "3.0.2",
-    "rollup": "^3.28.0"
+    "rollup": "^3.28.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0"
   },
   "repository": {
     "url": "https://github.com/sanjorcool/sanjorcool.git"
@@ -43,5 +49,9 @@
     "commitizen": {
       "path": "./node_modules/cz-git"
     }
+  },
+  "dependencies": {
+    "inquirer": "^9.2.10",
+    "simple-git": "^3.19.1"
   }
 }

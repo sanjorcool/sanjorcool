@@ -1,30 +1,35 @@
-# 插件库从0到1
+# @sanjorcool/cli
 
-## 1.工程初始化
+A CLI program for initializing project templates from remote Git repositories.
 
-## 2.编码规范
+## Installation
 
-## 3.提交规范
+You can install and use the CLI program using `npx` without installing it globally:
 
-## 4.打包工具
-
-### 安装
-
-```bash
-npm install rollup --save-dev
+```sh
+npx @sanjorcool/cli init
 ```
 
-### 创建配置文件
+## Features
 
-`echo module.exports = {} > rollup.config.js`
+- **init**: Initialize a project from a remote Git repository template.
 
-```js
-// rollup.config.js
-module.exports = {
-  input: "src/index.js",
-  output: {
-    file: "dist/bundle.js",
-    format: "cjs",
-  },
-};
+## Usage
+
+### Initializing a Project
+
+To initialize a new project from a remote Git repository template, use the following command:
+
+```sh
+npx @sanjorcool/cli init
 ```
+
+The CLI program will prompt you to choose a template. Currently, only the "default" template is available, which clones the repository from "https://github.com/sanjorcool/sanjorcool.git". The template will be cloned to the current working directory.
+
+## Contributing
+
+Contributions are welcome! If you encounter any issues or have suggestions for improvements, feel free to open an issue or create a pull request on the GitHub repository.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
