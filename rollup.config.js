@@ -4,13 +4,15 @@ export default {
   input: "src/index.js",
   output: [
     {
-      file: "dist/bundle.js",
+      dir: "dist",
+      entryFileNames: "bundle-[name].[hash].js",
       format: "cjs",
     },
     {
-      file: "dist/bundle.min.js",
+      dir: "dist",
       format: "iife",
       name: "version",
+      entryFileNames: "bundle-[name].[hash].min.js",
       plugins: [terser()],
     },
   ],
